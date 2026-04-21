@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
-import { FiChevronUp, FiMessageSquare, FiEye, FiHash, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { ChevronUp, MessageSquare, Eye, Hash, ChevronLeft, ChevronRight, Tags } from 'lucide-react';
 import { questionsApi, type QuestionSummary, type PagedData } from '../../services/api';
 import { timeAgo, formatNumber } from '../../utils/format';
 import './TaggedQuestionsPage.css';
@@ -29,7 +29,7 @@ export default function TaggedQuestionsPage() {
     <div className="tagged-page animate-fade-in">
       <div className="tagged-header">
         <div className="tagged-tag-name">
-          <FiHash /> {tag}
+          <Hash /> {tag}
         </div>
         <p className="tagged-count">
           {data ? `${data.totalElements} question${data.totalElements !== 1 ? 's' : ''} tagged` : 'Loading...'}
@@ -50,17 +50,17 @@ export default function TaggedQuestionsPage() {
               >
                 <div className="qc-stats">
                   <div className="qc-stat">
-                    <FiChevronUp />
+                    <ChevronUp />
                     <span className="qc-stat-num">{formatNumber(q.voteCount)}</span>
                     <span className="qc-stat-label">votes</span>
                   </div>
                   <div className={`qc-stat ${q.answerCount > 0 ? 'has-answers' : ''} ${q.status === 'SOLVED' ? 'solved' : ''}`}>
-                    <FiMessageSquare />
+                    <MessageSquare />
                     <span className="qc-stat-num">{q.answerCount}</span>
                     <span className="qc-stat-label">answers</span>
                   </div>
                   <div className="qc-stat">
-                    <FiEye />
+                    <Eye />
                     <span className="qc-stat-num">{formatNumber(q.viewCount)}</span>
                     <span className="qc-stat-label">views</span>
                   </div>
@@ -72,7 +72,7 @@ export default function TaggedQuestionsPage() {
                       {q.tags.map(t => <span key={t.name} className="tag">{t.name}</span>)}
                     </div>
                     <div className="qc-info">
-                      {q.status === 'SOLVED' && <span className="badge badge-solved">✓ Solved</span>}
+                      {q.status === 'SOLVED' && <span className="badge badge-solved">Solved</span>}
                       <span className="qc-author">{q.author.displayName || q.author.username}</span>
                       <span className="qc-time">{timeAgo(q.createdAt)}</span>
                     </div>
@@ -86,19 +86,19 @@ export default function TaggedQuestionsPage() {
             <div className="pagination">
               <button className="btn btn-ghost btn-sm" disabled={currentPage === 0}
                 onClick={() => setSearchParams({ page: (currentPage - 1).toString() })}>
-                <FiChevronLeft /> Prev
+                <ChevronLeft /> Prev
               </button>
               <span className="page-info">Page {currentPage + 1} of {data.totalPages}</span>
               <button className="btn btn-ghost btn-sm" disabled={data.last}
                 onClick={() => setSearchParams({ page: (currentPage + 1).toString() })}>
-                Next <FiChevronRight />
+                Next <ChevronRight />
               </button>
             </div>
           )}
         </>
       ) : (
         <div className="empty-state">
-          <div className="empty-state-icon">🏷️</div>
+          <div className="empty-state-icon"><Tags /></div>
           <div className="empty-state-title">No questions with this tag</div>
           <p>Be the first to <Link to="/ask">ask a question</Link> with this tag!</p>
         </div>

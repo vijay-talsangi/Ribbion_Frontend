@@ -10,10 +10,7 @@
   font-size: var(--fs-3xl);
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .tags-subtitle {
@@ -57,7 +54,7 @@
 .tag-card:hover {
   border-color: var(--border-accent);
   transform: translateY(-2px);
-  box-shadow: var(--accent-glow);
+  box-shadow: var(--shadow-md);
 }
 
 .tc-name {
@@ -66,7 +63,7 @@
   gap: var(--space-sm);
   font-size: var(--fs-base);
   font-weight: 700;
-  color: var(--text-accent);
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
 }
 

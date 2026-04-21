@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiHash, FiSearch } from 'react-icons/fi';
+import { Hash, Search } from 'lucide-react';
 import { tagsApi, type TagData, type PagedData } from '../../services/api';
 import './TagsPage.css';
 
@@ -36,7 +36,7 @@ export default function TagsPage() {
       </div>
 
       <div className="tags-search-bar">
-        <FiSearch className="tags-search-icon" />
+        <Search className="tags-search-icon" />
         <input
           type="text"
           className="form-input tags-search-input"
@@ -53,7 +53,7 @@ export default function TagsPage() {
         <div className="tags-grid">
           {tags.length > 0 ? tags.map(tag => (
             <Link key={tag.id} to={`/questions/tagged/${tag.name}`} className="tag-card glass-card">
-              <div className="tc-name"><FiHash /> {tag.name}</div>
+              <div className="tc-name"><Hash /> {tag.name}</div>
               <div className="tc-count">{tag.questionCount || 0} question{(tag.questionCount || 0) !== 1 ? 's' : ''}</div>
               {tag.description && <p className="tc-desc">{tag.description}</p>}
             </Link>

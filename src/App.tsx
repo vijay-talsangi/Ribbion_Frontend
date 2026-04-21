@@ -22,17 +22,17 @@ function App() {
           toastOptions={{
             duration: 3000,
             style: {
-              background: '#1a2235',
-              color: '#f1f5f9',
-              border: '1px solid rgba(148, 163, 184, 0.1)',
+              background: '#111111',
+              color: '#f5f5f5',
+              border: '1px solid rgba(255, 255, 255, 0.14)',
               borderRadius: '12px',
               fontSize: '14px',
             },
             success: {
-              iconTheme: { primary: '#10b981', secondary: '#fff' },
+              iconTheme: { primary: '#f2f2f2', secondary: '#111' },
             },
             error: {
-              iconTheme: { primary: '#ef4444', secondary: '#fff' },
+              iconTheme: { primary: '#d8d8d8', secondary: '#111' },
             },
           }}
         />

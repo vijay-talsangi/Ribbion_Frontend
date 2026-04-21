@@ -6,10 +6,7 @@
   font-size: var(--fs-3xl);
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .ask-subtitle {
@@ -61,7 +58,7 @@
 
 .tag-list-inline:focus-within {
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.14);
 }
 
 .tag-removable {
@@ -70,7 +67,7 @@
 
 .tag-remove {
   background: none;
-  color: var(--text-accent);
+  color: var(--text-secondary);
   display: flex;
   font-size: 0.7rem;
   padding: 0;

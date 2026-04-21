@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { FiMessageSquare, FiEye, FiChevronUp, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { MessageSquare, Eye, ChevronUp, ChevronLeft, ChevronRight, MessageCircleQuestion } from 'lucide-react';
 import { questionsApi, type QuestionSummary, type PagedData } from '../../services/api';
 import { timeAgo, formatNumber } from '../../utils/format';
 import './HomePage.css';
@@ -88,7 +88,7 @@ export default function HomePage() {
           ))
         ) : (
           <div className="empty-state">
-            <div className="empty-state-icon">🤔</div>
+            <div className="empty-state-icon"><MessageCircleQuestion /></div>
             <div className="empty-state-title">No questions yet</div>
             <p>Be the first to ask a question!</p>
             <Link to="/ask" className="btn btn-primary" style={{ marginTop: '1rem' }}>
@@ -106,7 +106,7 @@ export default function HomePage() {
             disabled={currentPage === 0}
             onClick={() => goToPage(currentPage - 1)}
           >
-            <FiChevronLeft /> Prev
+            <ChevronLeft /> Prev
           </button>
           <div className="page-info">
             Page {currentPage + 1} of {data.totalPages}
@@ -116,7 +116,7 @@ export default function HomePage() {
             disabled={data.last}
             onClick={() => goToPage(currentPage + 1)}
           >
-            Next <FiChevronRight />
+            Next <ChevronRight />
           </button>
         </div>
       )}
@@ -134,17 +134,17 @@ function QuestionCard({ question, index }: { question: QuestionSummary; index: n
     >
       <div className="qc-stats">
         <div className="qc-stat">
-          <FiChevronUp />
+          <ChevronUp />
           <span className="qc-stat-num">{formatNumber(question.voteCount)}</span>
           <span className="qc-stat-label">votes</span>
         </div>
         <div className={`qc-stat ${question.answerCount > 0 ? 'has-answers' : ''} ${question.status === 'SOLVED' ? 'solved' : ''}`}>
-          <FiMessageSquare />
+          <MessageSquare />
           <span className="qc-stat-num">{question.answerCount}</span>
           <span className="qc-stat-label">answers</span>
         </div>
         <div className="qc-stat">
-          <FiEye />
+          <Eye />
           <span className="qc-stat-num">{formatNumber(question.viewCount)}</span>
           <span className="qc-stat-label">views</span>
         </div>
@@ -159,7 +159,7 @@ function QuestionCard({ question, index }: { question: QuestionSummary; index: n
             ))}
           </div>
           <div className="qc-info">
-            {question.status === 'SOLVED' && <span className="badge badge-solved">✓ Solved</span>}
+            {question.status === 'SOLVED' && <span className="badge badge-solved">Solved</span>}
             <span className="qc-author">{question.author.displayName || question.author.username}</span>
             <span className="qc-time">{timeAgo(question.createdAt)}</span>
           </div>

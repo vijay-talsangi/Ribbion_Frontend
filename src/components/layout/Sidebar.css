@@ -45,12 +45,12 @@
   display: block;
   margin-top: var(--space-base);
   font-size: var(--fs-xs);
-  color: var(--text-accent);
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .sidebar-view-all:hover {
-  color: var(--accent-primary-hover);
+  color: var(--text-link-hover);
 }
 
 .sidebar-empty {
@@ -59,8 +59,8 @@
 }
 
 .sidebar-about {
-  background: rgba(99, 102, 241, 0.05);
-  border-color: rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .sidebar-desc {
@@ -70,7 +70,7 @@
 }
 
 .sidebar-desc strong {
-  color: var(--text-accent);
+  color: var(--text-primary);
 }
 
 @media (max-width: 1024px) {

@@ -13,10 +13,7 @@
   font-size: var(--fs-3xl);
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .home-subtitle {
@@ -55,7 +52,7 @@
 
 .sort-tab.active {
   background: var(--accent-primary);
-  color: white;
+  color: #0b0b0b;
   box-shadow: var(--shadow-sm);
 }
 
@@ -115,20 +112,20 @@
 }
 
 .qc-stat.has-answers .qc-stat-num {
-  color: var(--color-success);
+  color: var(--text-primary);
 }
 
 .qc-stat.solved {
-  background: var(--color-success-bg);
+  background: rgba(255, 255, 255, 0.1);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .qc-stat.solved .qc-stat-num,
 .qc-stat.solved .qc-stat-label,
 .qc-stat.solved svg {
-  color: var(--color-success);
+  color: var(--text-primary);
 }
 
 /* Body */
@@ -176,7 +173,7 @@
 }
 
 .qc-author {
-  color: var(--text-accent);
+  color: var(--text-secondary);
   font-weight: 500;
 }
 

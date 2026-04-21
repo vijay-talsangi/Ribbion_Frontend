@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiSearch, FiMenu, FiX, FiPlus, FiLogOut, FiUser, FiSettings } from 'react-icons/fi';
+import { Search, Menu, X, Plus, LogOut, User, Settings } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import './Navbar.css';
 
@@ -52,7 +52,7 @@ export default function Navbar() {
 
         {/* Search Bar — Desktop */}
         <form className="navbar-search" onSubmit={handleSearch}>
-          <FiSearch className="search-icon" />
+          <Search className="search-icon" />
           <input
             type="text"
             placeholder="Search questions..."
@@ -68,7 +68,7 @@ export default function Navbar() {
           {isAuthenticated ? (
             <>
               <Link to="/ask" className="btn btn-primary btn-sm ask-btn" id="ask-question-btn">
-                <FiPlus /> Ask Question
+                <Plus /> Ask Question
               </Link>
 
               <div className="profile-wrapper" ref={dropdownRef}>
@@ -90,14 +90,14 @@ export default function Navbar() {
                     </div>
                     <div className="dropdown-divider" />
                     <Link to={`/users/${user?.id}`} className="dropdown-item" onClick={() => setProfileDropdown(false)}>
-                      <FiUser /> Profile
+                      <User /> Profile
                     </Link>
                     <Link to="/settings" className="dropdown-item" onClick={() => setProfileDropdown(false)}>
-                      <FiSettings /> Settings
+                      <Settings /> Settings
                     </Link>
                     <div className="dropdown-divider" />
                     <button className="dropdown-item dropdown-logout" onClick={handleLogout}>
-                      <FiLogOut /> Logout
+                      <LogOut /> Logout
                     </button>
                   </div>
                 )}
@@ -114,7 +114,7 @@ export default function Navbar() {
             className="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <FiX /> : <FiMenu />}
+            {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="mobile-menu animate-fade-in">
           <form className="mobile-search" onSubmit={handleSearch}>
-            <FiSearch className="search-icon" />
+            <Search className="search-icon" />
             <input
               type="text"
               placeholder="Search questions..."

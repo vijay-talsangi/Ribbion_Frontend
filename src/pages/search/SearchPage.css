@@ -28,7 +28,7 @@
 }
 
 .search-query strong {
-  color: var(--text-accent);
+  color: var(--text-primary);
 }
 
 .search-results {
@@ -82,7 +82,7 @@
 }
 
 .search-result:hover .sr-title {
-  color: var(--text-link);
+  color: var(--text-primary);
 }
 
 .sr-meta {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 /* ============================================
    Ribbion Design System — MIT WPU Doubt Forum
    ============================================ */
@@ -5,46 +7,46 @@
 /* --- CSS Custom Properties (Design Tokens) --- */
 :root {
   /* Core Palette */
-  --bg-primary: #0a0e1a;
-  --bg-secondary: #111827;
-  --bg-tertiary: #1a2235;
-  --bg-card: #151d2e;
-  --bg-card-hover: #1c2640;
-  --bg-input: #1a2235;
-  --bg-elevated: #1e293b;
+  --bg-primary: #070707;
+  --bg-secondary: #101010;
+  --bg-tertiary: #171717;
+  --bg-card: #121212;
+  --bg-card-hover: #1a1a1a;
+  --bg-input: #141414;
+  --bg-elevated: #1f1f1f;
 
   /* Accent Colors */
-  --accent-primary: #6366f1;
-  --accent-primary-hover: #818cf8;
-  --accent-secondary: #8b5cf6;
-  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
-  --accent-gradient-hover: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c4b5fd 100%);
-  --accent-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+  --accent-primary: #ffffff;
+  --accent-primary-hover: #e8e8e8;
+  --accent-secondary: #d9d9d9;
+  --accent-gradient: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #ffffff 0%, #ebebeb 100%);
+  --accent-glow: 0 0 0 1px rgba(255, 255, 255, 0.22), 0 12px 24px rgba(0, 0, 0, 0.45);
 
   /* Status Colors */
-  --color-success: #10b981;
-  --color-success-bg: rgba(16, 185, 129, 0.1);
-  --color-warning: #f59e0b;
-  --color-warning-bg: rgba(245, 158, 11, 0.1);
-  --color-error: #ef4444;
-  --color-error-bg: rgba(239, 68, 68, 0.1);
-  --color-info: #3b82f6;
+  --color-success: #ffffff;
+  --color-success-bg: rgba(255, 255, 255, 0.12);
+  --color-warning: #efefef;
+  --color-warning-bg: rgba(255, 255, 255, 0.08);
+  --color-error: #cfcfcf;
+  --color-error-bg: rgba(255, 255, 255, 0.06);
+  --color-info: #f2f2f2;
 
   /* Text Colors */
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --text-accent: #a78bfa;
-  --text-link: #818cf8;
-  --text-link-hover: #c4b5fd;
+  --text-primary: #fafafa;
+  --text-secondary: #d0d0d0;
+  --text-tertiary: #999999;
+  --text-accent: #ffffff;
+  --text-link: #ffffff;
+  --text-link-hover: #dcdcdc;
 
   /* Borders */
-  --border-color: rgba(148, 163, 184, 0.1);
-  --border-color-hover: rgba(148, 163, 184, 0.2);
-  --border-accent: rgba(99, 102, 241, 0.4);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-color-hover: rgba(255, 255, 255, 0.24);
+  --border-accent: rgba(255, 255, 255, 0.38);
 
   /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: 'Manrope', 'Segoe UI', sans-serif;
   --fs-xs: 0.75rem;
   --fs-sm: 0.8125rem;
   --fs-base: 0.9375rem;
@@ -106,7 +108,10 @@ html {
 
 body {
   font-family: var(--font-family);
-  background: var(--bg-primary);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.06), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.04), transparent 36%),
+    var(--bg-primary);
   color: var(--text-primary);
   font-size: var(--fs-base);
   line-height: 1.6;
@@ -210,7 +215,7 @@ ul, ol {
 }
 
 .glass-card {
-  background: rgba(21, 29, 46, 0.8);
+  background: rgba(16, 16, 16, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
@@ -236,6 +241,8 @@ ul, ol {
 }
 
 .form-input {
+  display: block;
+  width: 100%;
   padding: var(--space-md) var(--space-base);
   background: var(--bg-input);
   border: 1px solid var(--border-color);
@@ -247,7 +254,7 @@ ul, ol {
 
 .form-input:focus {
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.16);
 }
 
 .form-input::placeholder {
@@ -255,8 +262,10 @@ ul, ol {
 }
 
 .form-textarea {
+  width: 100%;
   resize: vertical;
   min-height: 120px;
+  line-height: 1.55;
 }
 
 /* --- Buttons --- */
@@ -276,7 +285,7 @@ ul, ol {
 
 .btn-primary {
   background: var(--accent-gradient);
-  color: white;
+  color: #080808;
   box-shadow: var(--shadow-sm);
 }
 
@@ -308,12 +317,13 @@ ul, ol {
 }
 
 .btn-danger {
-  background: var(--color-error);
-  color: white;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color-hover);
 }
 
 .btn-danger:hover {
-  background: #dc2626;
+  background: var(--bg-card-hover);
 }
 
 .btn-sm {
@@ -337,18 +347,18 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   padding: var(--space-xs) var(--space-md);
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--text-accent);
   border-radius: var(--radius-full);
   font-size: var(--fs-xs);
   font-weight: 500;
   transition: all var(--transition-fast);
-  border: 1px solid rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .tag:hover {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
   color: var(--accent-primary-hover);
 }
 
@@ -366,16 +376,15 @@ ul, ol {
 }
 
 .badge-open {
-  background: var(--color-info);
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .badge-solved {
   background: var(--color-success-bg);
   color: var(--color-success);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 /* --- Vote Widget --- */
@@ -406,12 +415,12 @@ ul, ol {
 
 .vote-btn.active-up {
   color: var(--accent-primary);
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .vote-btn.active-down {
-  color: var(--color-error);
-  background: var(--color-error-bg);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .vote-count {
@@ -466,9 +475,15 @@ ul, ol {
 }
 
 .empty-state-icon {
-  font-size: 3rem;
+  font-size: 2.1rem;
   margin-bottom: var(--space-base);
-  opacity: 0.5;
+  opacity: 0.85;
+}
+
+.lucide {
+  width: 1em;
+  height: 1em;
+  stroke-width: 1.9;
 }
 
 .empty-state-title {

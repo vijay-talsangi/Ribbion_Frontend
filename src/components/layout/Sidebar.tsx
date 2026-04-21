@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiTrendingUp, FiHash } from 'react-icons/fi';
+import { TrendingUp, Hash } from 'lucide-react';
 import { tagsApi, type TagData } from '../../services/api';
 import './Sidebar.css';
 
@@ -15,7 +15,7 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-section">
         <h3 className="sidebar-title">
-          <FiTrendingUp /> Popular Tags
+          <TrendingUp /> Popular Tags
         </h3>
         <div className="sidebar-tags">
           {tags.length > 0 ? (
@@ -25,7 +25,7 @@ export default function Sidebar() {
                 to={`/questions/tagged/${tag.name}`}
                 className="tag"
               >
-                <FiHash style={{ fontSize: '0.65rem' }} /> {tag.name}
+                <Hash style={{ fontSize: '0.65rem' }} /> {tag.name}
                 <span className="tag-count">{tag.questionCount}</span>
               </Link>
             ))
@@ -34,7 +34,7 @@ export default function Sidebar() {
           )}
         </div>
         <Link to="/tags" className="sidebar-view-all">
-          View all tags →
+          View all tags
         </Link>
       </div>
 

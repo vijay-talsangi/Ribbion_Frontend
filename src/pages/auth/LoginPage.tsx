@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
+import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { ApiError } from '../../services/api';
 import toast from 'react-hot-toast';
@@ -49,7 +49,7 @@ export default function LoginPage() {
           <div className="form-group">
             <label className="form-label">Username or Email</label>
             <div className="input-wrapper">
-              <FiMail className="input-icon" />
+              <Mail className="input-icon" />
               <input
                 type="text"
                 className="form-input"
@@ -65,7 +65,7 @@ export default function LoginPage() {
           <div className="form-group">
             <label className="form-label">Password</label>
             <div className="input-wrapper">
-              <FiLock className="input-icon" />
+              <Lock className="input-icon" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 className="form-input"
@@ -80,7 +80,7 @@ export default function LoginPage() {
                 className="input-toggle"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FiEyeOff /> : <FiEye />}
+                {showPassword ? <EyeOff /> : <Eye />}
               </button>
             </div>
           </div>

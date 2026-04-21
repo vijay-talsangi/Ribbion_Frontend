@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FiMessageSquare, FiAward, FiCalendar, FiEdit3 } from 'react-icons/fi';
+import { MessageSquare, Award, Calendar, Pencil } from 'lucide-react';
 import { usersApi, type UserProfile, type QuestionSummary, type AnswerData, type PagedData } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 import { timeAgo, formatNumber } from '../../utils/format';
@@ -50,19 +50,19 @@ export default function UserProfilePage() {
           {profile.bio && <p className="profile-bio">{profile.bio}</p>}
           <div className="profile-stats">
             <div className="profile-stat">
-              <FiAward /> <strong>{formatNumber(profile.reputation)}</strong> reputation
+              <Award /> <strong>{formatNumber(profile.reputation)}</strong> reputation
             </div>
             <div className="profile-stat">
-              <FiMessageSquare /> <strong>{questions.length}</strong> questions
+              <MessageSquare /> <strong>{questions.length}</strong> questions
             </div>
             <div className="profile-stat">
-              <FiCalendar /> Joined {timeAgo(profile.createdAt)}
+              <Calendar /> Joined {timeAgo(profile.createdAt)}
             </div>
           </div>
         </div>
         {isOwnProfile && (
           <Link to="/settings" className="btn btn-secondary btn-sm profile-edit-btn">
-            <FiEdit3 /> Edit Profile
+            <Pencil /> Edit Profile
           </Link>
         )}
       </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiSave, FiUser } from 'react-icons/fi';
+import { Save, User } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { usersApi, ApiError } from '../../services/api';
 import toast from 'react-hot-toast';
@@ -45,7 +45,7 @@ export default function SettingsPage() {
   return (
     <div className="settings-page animate-fade-in">
       <h1 className="settings-title">
-        <FiUser /> Edit Profile
+        <User /> Edit Profile
       </h1>
 
       <form onSubmit={handleSubmit} className="settings-form glass-card">
@@ -89,7 +89,7 @@ export default function SettingsPage() {
         </div>
 
         <button type="submit" className="btn btn-primary btn-lg" disabled={loading} id="settings-submit">
-          {loading ? <span className="spinner" style={{ width: 20, height: 20 }} /> : <><FiSave /> Save Changes</>}
+          {loading ? <span className="spinner" style={{ width: 20, height: 20 }} /> : <><Save /> Save Changes</>}
         </button>
       </form>
     </div>

@@ -93,20 +93,20 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--accent-gradient);
+  background: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: var(--fs-xs);
   font-weight: 700;
-  color: white;
+  color: #0b0b0b;
   flex-shrink: 0;
 }
 
 .qd-author-name {
   font-size: var(--fs-sm);
   font-weight: 600;
-  color: var(--text-accent);
+  color: var(--text-primary);
 }
 
 .qd-author-rep {
@@ -124,8 +124,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-success);
-  color: white;
+  background: #f2f2f2;
+  color: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,15 +147,15 @@
 }
 
 .accept-btn:hover {
-  border-color: var(--color-success);
-  color: var(--color-success);
-  background: var(--color-success-bg);
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Accepted Answer */
 .answer-card.accepted {
-  border-color: rgba(16, 185, 129, 0.3);
-  background: rgba(16, 185, 129, 0.03);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Answers Header */
@@ -188,6 +188,20 @@
   margin-bottom: var(--space-base);
 }
 
+.qd-answer-form form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+}
+
+.qd-answer-form .form-textarea {
+  margin: 0;
+}
+
+.qd-answer-form .btn {
+  align-self: flex-start;
+}
+
 /* Comments */
 .comments-section {
   margin-top: var(--space-base);
@@ -202,7 +216,7 @@
 
 .comment-item {
   padding: var(--space-sm) 0;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-size: var(--fs-sm);
   line-height: 1.5;
 }
@@ -217,7 +231,7 @@
 }
 
 .comment-meta a {
-  color: var(--text-accent);
+  color: var(--text-primary);
 }
 
 .add-comment-btn {
@@ -229,7 +243,7 @@
 }
 
 .add-comment-btn:hover {
-  color: var(--text-accent);
+  color: var(--text-primary);
 }
 
 .comment-form {

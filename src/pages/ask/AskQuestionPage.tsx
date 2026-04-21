@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiSend, FiX, FiHash } from 'react-icons/fi';
+import { Send, X, Hash } from 'lucide-react';
 import { questionsApi, tagsApi, type TagData } from '../../services/api';
 import { ApiError } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
@@ -126,8 +126,8 @@ export default function AskQuestionPage() {
             <div className="tag-list-inline">
               {tags.map(tag => (
                 <span key={tag} className="tag tag-removable">
-                  <FiHash style={{ fontSize: '0.6rem' }} />{tag}
-                  <button type="button" onClick={() => removeTag(tag)} className="tag-remove"><FiX /></button>
+                  <Hash style={{ fontSize: '0.6rem' }} />{tag}
+                  <button type="button" onClick={() => removeTag(tag)} className="tag-remove"><X /></button>
                 </span>
               ))}
               {tags.length < 5 && (
@@ -151,7 +151,7 @@ export default function AskQuestionPage() {
                     className="tag-suggestion"
                     onClick={() => addTag(s.name)}
                   >
-                    <FiHash /> {s.name}
+                    <Hash /> {s.name}
                     <span className="tag-suggestion-count">{s.questionCount} questions</span>
                   </button>
                 ))}
@@ -161,7 +161,7 @@ export default function AskQuestionPage() {
         </div>
 
         <button type="submit" className="btn btn-primary btn-lg" disabled={loading} id="ask-submit">
-          {loading ? <span className="spinner" style={{ width: 20, height: 20 }} /> : <><FiSend /> Post Question</>}
+          {loading ? <span className="spinner" style={{ width: 20, height: 20 }} /> : <><Send /> Post Question</>}
         </button>
       </form>
     </div>

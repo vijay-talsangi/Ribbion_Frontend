@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiUser, FiMail, FiLock, FiEye, FiEyeOff, FiSmile } from 'react-icons/fi';
+import { User, Mail, Lock, Eye, EyeOff, IdCard } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { ApiError } from '../../services/api';
 import toast from 'react-hot-toast';
@@ -28,7 +28,7 @@ export default function RegisterPage() {
 
     try {
       await register(formData.username, formData.email, formData.password, formData.displayName || undefined);
-      toast.success('Account created! Welcome to Ribbion 🎉');
+      toast.success('Account created. Welcome to Ribbion.');
       navigate('/');
     } catch (err) {
       if (err instanceof ApiError) {
@@ -60,7 +60,7 @@ export default function RegisterPage() {
           <div className="form-group">
             <label className="form-label">Username *</label>
             <div className="input-wrapper">
-              <FiUser className="input-icon" />
+              <User className="input-icon" />
               <input
                 type="text"
                 className={`form-input ${fieldErrors.username ? 'input-error' : ''}`}
@@ -79,7 +79,7 @@ export default function RegisterPage() {
           <div className="form-group">
             <label className="form-label">Email *</label>
             <div className="input-wrapper">
-              <FiMail className="input-icon" />
+              <Mail className="input-icon" />
               <input
                 type="email"
                 className={`form-input ${fieldErrors.email ? 'input-error' : ''}`}
@@ -96,7 +96,7 @@ export default function RegisterPage() {
           <div className="form-group">
             <label className="form-label">Password *</label>
             <div className="input-wrapper">
-              <FiLock className="input-icon" />
+              <Lock className="input-icon" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 className={`form-input ${fieldErrors.password ? 'input-error' : ''}`}
@@ -112,7 +112,7 @@ export default function RegisterPage() {
                 className="input-toggle"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FiEyeOff /> : <FiEye />}
+                {showPassword ? <EyeOff /> : <Eye />}
               </button>
             </div>
             {fieldErrors.password && <span className="field-error">{fieldErrors.password}</span>}
@@ -121,7 +121,7 @@ export default function RegisterPage() {
           <div className="form-group">
             <label className="form-label">Display Name <span style={{ color: 'var(--text-tertiary)' }}>(optional)</span></label>
             <div className="input-wrapper">
-              <FiSmile className="input-icon" />
+              <IdCard className="input-icon" />
               <input
                 type="text"
                 className="form-input"

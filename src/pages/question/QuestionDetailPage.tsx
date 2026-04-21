@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FiChevronUp, FiChevronDown, FiCheck, FiMessageCircle, FiHash, FiEye, FiClock, FiTrash2 } from 'react-icons/fi';
+import { ChevronUp, ChevronDown, Check, MessageCircle, Hash, Eye, Clock3, Trash2, CircleHelp } from 'lucide-react';
 import {
   questionsApi, answersApi, votesApi, commentsApi,
   type QuestionDetail, type AnswerData, type CommentData, type VoteData, type PagedData
@@ -135,7 +135,7 @@ export default function QuestionDetailPage() {
   if (!question) {
     return (
       <div className="empty-state">
-        <div className="empty-state-icon">❓</div>
+        <div className="empty-state-icon"><CircleHelp /></div>
         <div className="empty-state-title">Question not found</div>
       </div>
     );
@@ -147,9 +147,9 @@ export default function QuestionDetailPage() {
       <div className="qd-header">
         <h1 className="qd-title">{question.title}</h1>
         <div className="qd-meta">
-          <span><FiClock /> Asked {timeAgo(question.createdAt)}</span>
-          <span><FiEye /> {question.viewCount} views</span>
-          {question.status === 'SOLVED' && <span className="badge badge-solved">✓ Solved</span>}
+          <span><Clock3 /> Asked {timeAgo(question.createdAt)}</span>
+          <span><Eye /> {question.viewCount} views</span>
+          {question.status === 'SOLVED' && <span className="badge badge-solved">Solved</span>}
         </div>
       </div>
 
@@ -168,7 +168,7 @@ export default function QuestionDetailPage() {
           <div className="qd-tags">
             {question.tags.map(tag => (
               <Link key={tag.name} to={`/questions/tagged/${tag.name}`} className="tag">
-                <FiHash style={{ fontSize: '0.6rem' }} /> {tag.name}
+                <Hash style={{ fontSize: '0.6rem' }} /> {tag.name}
               </Link>
             ))}
           </div>
@@ -235,7 +235,6 @@ export default function QuestionDetailPage() {
             type="submit"
             className="btn btn-primary"
             disabled={!isAuthenticated || submitting || answerBody.length < 10}
-            style={{ marginTop: 'var(--space-base)' }}
             id="post-answer-btn"
           >
             {submitting ? <span className="spinner" style={{ width: 18, height: 18 }} /> : 'Post Answer'}
@@ -254,11 +253,11 @@ function VoteWidget({ count, userVote, onUpvote, onDownvote }: {
   return (
     <div className="vote-widget">
       <button className={`vote-btn ${userVote === 1 ? 'active-up' : ''}`} onClick={onUpvote}>
-        <FiChevronUp />
+        <ChevronUp />
       </button>
       <span className="vote-count">{count}</span>
       <button className={`vote-btn ${userVote === -1 ? 'active-down' : ''}`} onClick={onDownvote}>
-        <FiChevronDown />
+        <ChevronDown />
       </button>
     </div>
   );
@@ -287,12 +286,12 @@ function AnswerCard({ answer, userVote, isQuestionAuthor, isAnswerAuthor, onUpvo
         <VoteWidget count={answer.voteCount} userVote={userVote} onUpvote={onUpvote} onDownvote={onDownvote} />
         {answer.accepted && (
           <div className="accepted-badge" title="Accepted answer">
-            <FiCheck />
+            <Check />
           </div>
         )}
         {isQuestionAuthor && !answer.accepted && (
           <button className="accept-btn" onClick={onAccept} title="Accept this answer">
-            <FiCheck />
+            <Check />
           </button>
         )}
       </div>
@@ -310,11 +309,11 @@ function AnswerCard({ answer, userVote, isQuestionAuthor, isAnswerAuthor, onUpvo
           </Link>
           <div className="answer-actions">
             <button className="btn btn-ghost btn-sm" onClick={loadComments}>
-              <FiMessageCircle /> Comments
+              <MessageCircle /> Comments
             </button>
             {isAnswerAuthor && (
               <button className="btn btn-ghost btn-sm" onClick={onDelete} style={{ color: 'var(--color-error)' }}>
-                <FiTrash2 />
+                <Trash2 />
               </button>
             )}
           </div>

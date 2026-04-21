@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { FiSearch, FiChevronUp, FiMessageSquare, FiEye, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { Search, ChevronUp, MessageSquare, Eye, ChevronLeft, ChevronRight, SearchX } from 'lucide-react';
 import { questionsApi, type QuestionSummary, type PagedData } from '../../services/api';
 import { timeAgo, formatNumber } from '../../utils/format';
 import './SearchPage.css';
@@ -28,7 +28,7 @@ export default function SearchPage() {
   return (
     <div className="search-page animate-fade-in">
       <div className="search-header">
-        <FiSearch className="search-header-icon" />
+        <Search className="search-header-icon" />
         <div>
           <h1 className="search-title">Search Results</h1>
           <p className="search-query">
@@ -51,9 +51,9 @@ export default function SearchPage() {
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
                 <div className="sr-stats">
-                  <span><FiChevronUp /> {formatNumber(q.voteCount)}</span>
-                  <span><FiMessageSquare /> {q.answerCount}</span>
-                  <span><FiEye /> {formatNumber(q.viewCount)}</span>
+                  <span><ChevronUp /> {formatNumber(q.voteCount)}</span>
+                  <span><MessageSquare /> {q.answerCount}</span>
+                  <span><Eye /> {formatNumber(q.viewCount)}</span>
                 </div>
                 <div className="sr-body">
                   <h3 className="sr-title">{q.title}</h3>
@@ -75,21 +75,21 @@ export default function SearchPage() {
                 to={`/search?q=${encodeURIComponent(query)}&page=${currentPage - 1}`}
                 className={`btn btn-ghost btn-sm ${currentPage === 0 ? 'disabled' : ''}`}
               >
-                <FiChevronLeft /> Prev
+                <ChevronLeft /> Prev
               </Link>
               <span className="page-info">Page {currentPage + 1} of {data.totalPages}</span>
               <Link
                 to={`/search?q=${encodeURIComponent(query)}&page=${currentPage + 1}`}
                 className={`btn btn-ghost btn-sm ${data.last ? 'disabled' : ''}`}
               >
-                Next <FiChevronRight />
+                Next <ChevronRight />
               </Link>
             </div>
           )}
         </>
       ) : (
         <div className="empty-state">
-          <div className="empty-state-icon">🔍</div>
+          <div className="empty-state-icon"><SearchX /></div>
           <div className="empty-state-title">No results found</div>
           <p>Try different keywords or browse <Link to="/tags">tags</Link></p>
         </div>
